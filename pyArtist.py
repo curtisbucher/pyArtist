@@ -4,6 +4,9 @@
 Created on Tue Feb  5 00:02:55 2019
 
 @author: curtisbucher
+
+Creates images from python programs. Because every program is a work of art.
+Will recursively run through all programs in a specified directory.
 """
 
 import pygame
@@ -64,7 +67,7 @@ def recur_gen_image():
         os.mkdir("./Images")
     except FileExistsError:
         pass
-        for dir, subdirs, files in os.walk('..'):
+        for dir, subdirs, files in os.walk(input("Directory: ")):
             for file in files:
                 if os.path.splitext(file)[-1] == ".py":
                     img = gen_image_from_file(os.path.join(dir, file))
